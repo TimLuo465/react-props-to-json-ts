@@ -1,0 +1,110 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "primary",
+        "ghost",
+        "warning",
+        "link",
+        "css"
+      ],
+      "default": "ghost",
+      "title": "类型",
+      "enumNames": [
+        "填充",
+        "虚线",
+        "警告",
+        "链接"
+      ],
+      "ui:disabled": "{{ rootValue.disabled === true }}"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "title": "禁用"
+    },
+    "date": {
+      "type": "string",
+      "title": "日期",
+      "format": "date"
+    },
+    "user": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "L",
+            "C"
+          ],
+          "title": "id"
+        },
+        "name": {
+          "type": "string",
+          "title": "名称"
+        },
+        "phone": {
+          "type": "number",
+          "title": "电话号码"
+        },
+        "admin": {
+          "type": "boolean",
+          "title": "是否为管理员"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "phone",
+        "admin"
+      ],
+      "default": {
+        "id": "C",
+        "name": "string",
+        "phone": 1231232,
+        "admin": true
+      },
+      "title": "用户"
+    },
+    "users": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": [
+              "L",
+              "C"
+            ],
+            "title": "id"
+          },
+          "name": {
+            "type": "string",
+            "title": "名称"
+          },
+          "phone": {
+            "type": "number",
+            "title": "电话号码"
+          },
+          "admin": {
+            "type": "boolean",
+            "title": "是否为管理员"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "phone",
+          "admin"
+        ]
+      },
+      "title": "用户组"
+    }
+  },
+  "required": [
+    "user"
+  ]
+}
