@@ -1,6 +1,6 @@
 {
   "name": "react-props-to-json-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "react props to json schema",
   "keywords": [
     "react",
@@ -21,7 +21,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=8.1.0"
   },
   "scripts": {
     "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",

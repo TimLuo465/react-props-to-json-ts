@@ -85,6 +85,9 @@ export const parseTsType = (tsType: TsType) => {
   } else if (name === 'Array' && elements) {
     _prop.type = 'array'
     _prop.items = parseTsType(elements[0])
+  } else if (name === 'ReactNode') {
+    _prop.type = 'string'
+    _prop.format = 'richtext'
   }
 
   return _prop

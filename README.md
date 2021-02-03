@@ -23,4 +23,12 @@ console.log(schema);
 pls follow the [exmaple](https://github.com/TimLuo465/react-props-to-json-ts/blob/main/example)
 
 # Support types
-`union` `number` `boolean` `string` `object` `array`
+|       type      |       format      |
+| --------------- | ---------------   |
+|      `union`    |       select      |
+|      `number`   |      input number |
+|      `boolean`  |      checkbox     |
+|      `string`   |      input        |
+|      `object`   |      auto         |
+|      `array`    |      auto         |
+|   `ReactNode`   |      richtext     |
