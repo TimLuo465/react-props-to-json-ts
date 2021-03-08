@@ -12,13 +12,13 @@ npm install --save-dev react-props-to-json-ts
 
 # How to use
 ```js
-const fs = require('fs');
-const parseToSchema = require('react-props-to-json-ts');
-const source = fs.readFileSync('filename.tsx', 'utf8');
-const schema = parseToSchema(source);
+const propsToJSON = require('react-props-to-json-ts');
+// input file path
+const result = propsToJSON('filename.tsx');
 
-console.log(schema);
+console.log(result);
 ```
+
 # Example
 pls follow the [exmaple](https://github.com/TimLuo465/react-props-to-json-ts/blob/main/example)
 
