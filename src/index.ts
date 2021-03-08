@@ -1,22 +1,14 @@
-import docgen from 'react-docgen'
-import fs from 'fs'
+import { parse, importers } from 'react-docgen'
 import parseToSchema from './parse'
+import fs from 'fs'
 
-/**
- * Takes jsx/tsx source code and returns an form-render json schema
- */
-export default (source: string) => {
-  const info = docgen.parse(
-    source,
-    docgen.resolver.findExportedComponentDefinition,
-    docgen.defaultHandlers,
-    {
-      parserOptions: {
-        // support jsx, tsx
-        plugins: ['jsx', 'classProperties', 'typescript']
-      }
-    }
-  )
+export default (path: string) => {
+  const fileContent = fs.readFileSync(path, 'utf-8')
+  const result = parse(fileContent, null, null, {
+    importer: importers.makeFsImporter(),
+    filename: path,
+    babelrc: false
+  })
 
-  return parseToSchema(info)
+  return parseToSchema(result)
 }

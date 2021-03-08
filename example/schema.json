@@ -1,110 +1,69 @@
 {
   "type": "object",
   "properties": {
-    "type": {
+    "name": {
+      "type": "string",
+      "default": "张三",
+      "title": "名称"
+    },
+    "age": {
+      "type": "number",
+      "default": 18,
+      "title": "年龄"
+    },
+    "sex": {
       "type": "string",
       "enum": [
-        "primary",
-        "ghost",
-        "warning",
-        "link",
-        "css"
+        "M",
+        "F"
       ],
-      "default": "ghost",
-      "title": "类型",
+      "default": "M",
+      "title": "性别",
       "enumNames": [
-        "填充",
-        "虚线",
-        "警告",
-        "链接"
-      ],
-      "ui:disabled": "{{ rootValue.disabled === true }}"
+        "男",
+        "女"
+      ]
     },
-    "disabled": {
+    "marry": {
       "type": "boolean",
-      "default": false,
-      "title": "禁用"
+      "title": "是否婚配"
     },
-    "date": {
-      "type": "string",
-      "title": "日期",
-      "format": "date"
-    },
-    "user": {
+    "address": {
       "type": "object",
       "properties": {
-        "id": {
+        "receiver": {
           "type": "string",
-          "enum": [
-            "L",
-            "C"
-          ],
-          "title": "id"
+          "title": "收货人"
         },
-        "name": {
+        "detail": {
           "type": "string",
-          "title": "名称"
-        },
-        "phone": {
-          "type": "number",
-          "title": "电话号码"
-        },
-        "admin": {
-          "type": "boolean",
-          "title": "是否为管理员"
+          "title": "详细地址"
         }
       },
-      "required": [
-        "id",
-        "name",
-        "phone",
-        "admin"
-      ],
-      "default": {
-        "id": "C",
-        "name": "string",
-        "phone": 1231232,
-        "admin": true
-      },
-      "title": "用户"
+      "required": [],
+      "title": "地址"
     },
-    "users": {
+    "edus": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "id": {
+          "school": {
             "type": "string",
-            "enum": [
-              "L",
-              "C"
-            ],
-            "title": "id"
+            "title": "学校"
           },
-          "name": {
+          "date": {
             "type": "string",
-            "title": "名称"
-          },
-          "phone": {
-            "type": "number",
-            "title": "电话号码"
-          },
-          "admin": {
-            "type": "boolean",
-            "title": "是否为管理员"
+            "title": "时间",
+            "format": "date"
           }
         },
-        "required": [
-          "id",
-          "name",
-          "phone",
-          "admin"
-        ]
+        "required": []
       },
-      "title": "用户组"
+      "title": "教育经历"
     }
   },
   "required": [
-    "user"
+    "address"
   ]
 }

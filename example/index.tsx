@@ -1,76 +1,55 @@
-import React, { ReactNode, SyntheticEvent } from "react";
-
-type Types = "primary" | "ghost" | "warning" | "link";
-
-type User = {
-  /**
-   * @title id
-   */
-  id: 'L' | 'C';
+import React from "react";
+import { Interface } from "readline";
+import { Edu, Address, Sex } from './types';
+export interface DemoProps {
   /**
    * @title 名称
    */
   name: string;
   /**
-   * @title 电话号码
+   * @title 年龄
    */
-  phone: number;
+  age: number;
   /**
-   * @title 是否为管理员
+   * @title 性别
+   * @enumNames ["男", "女"]
    */
-  admin: boolean;
+  sex: Sex;
+  /**
+   * @title 是否婚配
+   */
+  marry?: boolean;
+  /**
+   * @title 地址
+   */
+  address?: Address;
+  /**
+   * @title 教育经历
+   */
+  edus?: {
+    /**
+     * @title 学校
+     */
+    school?: string;
+    /**
+     * @title 时间
+     * @format date
+     */
+    date?: string;
+  }[];
 }
 
-interface ButtonProps {
-  /**
-   * moi
-   * @title 类型
-   * @enumNames ["填充", "虚线", "警告", "链接"]
-   * @ui:disabled {{ rootValue.disabled === true }}
-   */
-  type: Types | 'css';
-  /**
-   * @title 内容
-   */
-  content: ReactNode;
-  /**
-   * @title 禁用
-   */
-  disabled: boolean;
-  /**
-   * @title 日期
-   * @format date
-   */
-  date?: string;
-  /**
-   * @title 用户
-   */
-  user?: User;
-  /**
-   * @title 用户组
-   */
-  users?: User[];
-  onClick?: (e: SyntheticEvent) => void;
-}
-
-
-export default class Button extends React.Component<ButtonProps> {
-  static defaultProps: ButtonProps = {
-    type: 'ghost',
-    disabled: false,
-    user: {
-      id: 'C',
-      name: 'string',
-      phone: 1231232,
-      admin: true
-    }
-  }
+/**
+ * Demo
+ */
+export default class Demo extends React.Component<DemoProps> {
+  static defaultProps: DemoProps = {
+    name: "张三",
+    age: 18,
+    sex: "M"
+  };
 
   render() {
-    const { disabled = false, children } = props;
-
-    return (
-      <button disabled= { disabled } > { children } < /button>
-    );
+    return <div />
   }
 }

@@ -13,13 +13,13 @@
     "declarationDir": "dist/types",
     "outDir": "dist/lib",
     "skipLibCheck": true,
+    "jsx": "react",
     "typeRoots": [
       "node_modules/@types"
     ],
   },
   "include": [
-    "src",
-    "global.d.ts"
+    "src"
   ],
   "exclude": [
     "node_modules"
