@@ -40,7 +40,7 @@ export interface DemoProps {
 }
 
 /**
- * Demo
+ * @cols 1
  */
 export default class Demo extends React.Component<DemoProps> {
   static defaultProps: DemoProps = {

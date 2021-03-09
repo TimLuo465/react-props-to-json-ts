@@ -5,6 +5,10 @@ import signature from './signature'
 const primitiveTypes = ['string', 'number', 'boolean']
 const suffixUIPropNamePattern = /(:[\w]+) (\S[\s\S]*)/
 
+export const isEmptyObject = (obj: any): boolean => {
+  return obj && Object.keys(obj).length === 0 && obj.constructor === Object
+}
+
 /**
  * unwrap a raw value, eg:
  * - ''a'' => "a"
@@ -117,7 +121,8 @@ export const getProps = (props: Props) => {
   return Object.keys(props).reduce((_props, key) => {
     const prop = getProp(props[key])
 
-    if (prop && prop.type) {
+    // prop should has "type"，"title"
+    if (prop && prop.type && prop.title) {
       _props[key] = prop
     }
     return _props

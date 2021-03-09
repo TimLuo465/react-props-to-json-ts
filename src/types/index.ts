@@ -21,6 +21,7 @@ export type TsType = {
 
 export type Prop = {
   required: boolean
+  title: string
   tsType: TsType
   description?: string
   defaultValue?: {
@@ -41,7 +42,22 @@ export type ComponentInfo = {
 }
 
 export type Schema = {
-  type: string
+  /**
+   * The component displayName
+   */
+  displayName: string
+  /**
+   * The component props
+   */
   properties: Props
   required: string[]
+  cols?: number
+  /**
+   * If set true, will skip to generate schema
+   */
+  ignore?: boolean
+  /**
+   * Other settings in desciption
+   */
+  [key: string]: any
 }

@@ -1,5 +1,5 @@
 {
-  "type": "object",
+  "displayName": "Demo",
   "properties": {
     "name": {
       "type": "string",
@@ -65,5 +65,6 @@
   },
   "required": [
     "address"
-  ]
+  ],
+  "cols": 1
 }
