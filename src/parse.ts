@@ -5,8 +5,8 @@ export default function parseToSchema(info: ComponentInfo): Schema | null {
   const { description, props, displayName } = info
   const desc = parseComment(description)
 
-  // Support add "@ignore true" tag, skip to parse schema
-  if (desc.ignore) {
+  // Component should has a title tag
+  if (!desc.title) {
     return null
   }
 

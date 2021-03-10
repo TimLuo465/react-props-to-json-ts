@@ -43,6 +43,10 @@ export type ComponentInfo = {
 
 export type Schema = {
   /**
+   * The component should has a title props, if not, will get a empty schema
+   */
+  title?: string
+  /**
    * The component displayName
    */
   displayName: string
@@ -52,10 +56,6 @@ export type Schema = {
   properties: Props
   required: string[]
   cols?: number
-  /**
-   * If set true, will skip to generate schema
-   */
-  ignore?: boolean
   /**
    * Other settings in desciption
    */

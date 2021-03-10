@@ -19,6 +19,12 @@ const result = propsToJSON('filename.tsx');
 console.log(result);
 ```
 
+# Note
+
+- The tool will skip the prop without `@title` tag.
+- The component also need a `@title` tag, otherwise will get `null`.
+ - If props is empty, will get a `null` value.
+
 # Example
 pls follow the [exmaple](https://github.com/TimLuo465/react-props-to-json-ts/blob/main/example)
 
