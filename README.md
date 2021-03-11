@@ -19,6 +19,13 @@ const result = propsToJSON('filename.tsx');
 console.log(result);
 ```
 
+# API
+### (path, handleError)
+|       argument      |       type      | required | description |
+| --------------- | ---------------   | ------- | ----- |
+| path           |  string  |   true | The path of parsing file
+| handleError    | (err: any) => void | false | Callback for handle the error |
+
 # Note
 
 - The tool will skip the prop without `@title` tag.
