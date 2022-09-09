@@ -1,4 +1,4 @@
-import { Prop, Props, TsType } from './types'
+import { CommentDescType, Prop, Props, TsType } from './types'
 import doctrine, { Tag, type } from 'doctrine'
 import signature from './signature'
 
@@ -7,6 +7,10 @@ const suffixUIPropNamePattern = /(:[\w]+) (\S[\s\S]*)/
 
 export const isEmptyObject = (obj: any): boolean => {
   return obj && Object.keys(obj).length === 0 && obj.constructor === Object
+}
+
+export const hasOwnProperty = (obj: object, propKey: PropertyKey): boolean => {
+  return Object.prototype.hasOwnProperty.call(obj, propKey)
 }
 
 /**
@@ -117,9 +121,23 @@ export const getProp = (prop: Prop) => {
   return _prop
 }
 
-export const getProps = (props: Props) => {
+export const getProps = (props: Props, desc: CommentDescType) => {
+  const { exclude = [] } = desc
+  const hasProps = hasOwnProperty(desc, 'props')
+
   return Object.keys(props).reduce((_props, key) => {
     const prop = getProp(props[key])
+
+    // props whitelist
+    if (hasProps && !desc.props?.includes(key)) {
+      return _props
+    }
+
+    // props blacklist, Mutually exclusive with whitelist.
+    // Priority is lower than whitelist when whitelist exist
+    if (!hasProps && exclude.includes(key)) {
+      return _props
+    }
 
     // prop should has "type"，"title"
     if (prop && prop.type && prop.title) {

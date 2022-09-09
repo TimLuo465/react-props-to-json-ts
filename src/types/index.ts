@@ -61,3 +61,18 @@ export type Schema = {
    */
   [key: string]: any
 }
+
+export type CommentDescType = {
+  /**
+   * Component title
+   */
+  title: string
+  /**
+   * Only generate component props object include in the props
+   */
+  props?: string[]
+  /**
+   * Exclude the props when generate component props object
+   */
+  exclude?: string[]
+}
