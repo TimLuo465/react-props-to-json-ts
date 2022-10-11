@@ -8,9 +8,12 @@ export default function parseToSchema(info: ComponentInfo): Schema | null {
   // Component should has a title tag.
   // Function Component returns an object without any props. This is a react-docgen bug.
   // https://github.com/reactjs/react-docgen/issues/590
-  if (!desc.title || !props) {
+  if (!desc.title) {
     return null
   }
+  // if (!desc.title || !props) {
+  //   return null
+  // }
 
   const properties = getProps(props, desc)
   const required = getRequired(properties)
